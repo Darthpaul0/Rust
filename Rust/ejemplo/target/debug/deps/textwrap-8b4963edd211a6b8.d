@@ -1,0 +1,11 @@
+C:\Users\pferna12\Desktop\ejemplo\target\debug\deps\textwrap-8b4963edd211a6b8.rmeta: C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\lib.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\indentation.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\splitting.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\core.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\core\optimal_fit.rs
+
+C:\Users\pferna12\Desktop\ejemplo\target\debug\deps\libtextwrap-8b4963edd211a6b8.rlib: C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\lib.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\indentation.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\splitting.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\core.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\core\optimal_fit.rs
+
+C:\Users\pferna12\Desktop\ejemplo\target\debug\deps\textwrap-8b4963edd211a6b8.d: C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\lib.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\indentation.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\splitting.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\core.rs C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\core\optimal_fit.rs
+
+C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\lib.rs:
+C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\indentation.rs:
+C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\splitting.rs:
+C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\core.rs:
+C:\Users\pferna12\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.13.4\src\core\optimal_fit.rs:
