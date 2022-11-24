@@ -1,3 +1,5 @@
+// https://doc.rust-lang.org/book/ch05-00-structs.html
+
 #[derive(Debug)]
 struct Rectangle {
     width: u32,
