@@ -61,8 +61,8 @@ fn car_factory(order: i32, miles: u32) -> Car {
     // Return requested "Car"
     Car {
         color: String::from(colors[(color - 1) as usize]),
-        motor: motor,
-        roof: roof,
+        motor,
+        roof,
         age: car_quality(miles),
     }
 }
@@ -79,39 +79,24 @@ fn main() {
     // Declare a car as mutable "Car" struct
     let mut car: Car;
 
-    // Order 6 cars, increment "order" for each request
-    // Car order #1: Used, Hard top
-    car = car_factory(order, 1000);
-    orders.insert(order, car);
-    println!("Car order {}: {:?}", order, orders.get(&order));
+    // Start with zero miles
+    let mut miles = 0;
 
-    // Car order #2: Used, Convertible
-    order = order + 1;
-    car = car_factory(order, 2000);
-    orders.insert(order, car);
-    println!("Car order {}: {:?}", order, orders.get(&order));
+    //todo!("Add a loop expression to fulfill orders for 6 cars, initialize `order` variable to 1") {
 
-    // Car order #3: New, Hard top
-    order = order + 1;
-    car = car_factory(order, 0);
-    orders.insert(order, car);
-    println!("Car order {}: {:?}", order, orders.get(&order));
-
-    // Car order #4: New, Convertible
-    order = order + 1;
-    car = car_factory(order, 0);
-    orders.insert(order, car);
-    println!("Car order {}: {:?}", order, orders.get(&order));
-
-    // Car order #5: Used, Hard top
-    order = order + 1;
-    car = car_factory(order, 3000);
-    orders.insert(order, car);
-    println!("Car order {}: {:?}", order, orders.get(&order));
-
-    // Car order #6: Used, Hard top
-    order = order + 1;
-    car = car_factory(order, 4000);
-    orders.insert(order, car);
-    println!("Car order {}: {:?}", order, orders.get(&order));
+    // Call car_factory to fulfill order
+    // Add order <K, V> pair to "orders" hash map
+    // Call println! to show order details from the hash map
+    while order < 12 {
+        car = car_factory(order, miles);
+        orders.insert(order, car);
+        println!("Car order {}: {:?}", order, orders.get(&order));
+        order = order + 1;
+        // Reset miles for order variety
+        if miles == 2100 {
+            miles = 0;
+        } else {
+            miles = miles + 700;
+        }
+    }
 }
