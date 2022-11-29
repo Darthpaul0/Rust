@@ -41,7 +41,7 @@ fn car_factory(order: i32, miles: u32) -> Car {
     // Valid color = 1, 2, 3, or 4
     // If color > 4, reduce color to valid index
     let mut color = order as usize;
-    if color > 4 {
+    while color > 4 {
         // color = 5 --> index 1, 6 --> 2, 7 --> 3, 8 --> 4
         color = color - 4;
     }
