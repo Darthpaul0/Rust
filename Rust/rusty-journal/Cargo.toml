@@ -6,6 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = "1.0" # <--- Add `anyhow` to our project dependencies.
+home = "0.5" # <--- Add `home` to our project dependencies.
 # Add serde_json.
 serde_json = "1.0"
 structopt = "0.3"
