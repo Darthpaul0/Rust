@@ -7,6 +7,7 @@ use std::io::prelude::*;
 use std::io;
 
 const ALLOWED_ATTEMPS: u8 = 7;
+
 struct Letter {
     character: char,
     revealed: bool,

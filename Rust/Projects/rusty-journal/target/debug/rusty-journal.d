@@ -1,1 +1,0 @@
-C:\Users\pferna12\Desktop\Rust\rusty-journal\target\debug\rusty-journal.exe: C:\Users\pferna12\Desktop\Rust\rusty-journal\src\cli.rs C:\Users\pferna12\Desktop\Rust\rusty-journal\src\main.rs C:\Users\pferna12\Desktop\Rust\rusty-journal\src\tasks.rs
