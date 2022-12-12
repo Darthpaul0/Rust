@@ -14,12 +14,18 @@ fn main() {
     let option: i32 = read!();
 
     match option {
+        // cipher phrase
         1 => {
             println!("You selected option {}: Cipher a phrase", option);
             println!("{}",cipher_phrase());
         }
+        // decipher phrase
         2 => {
             println!("You selected option {}: Decipher a phrase", option)
+        }
+        // exit programme
+        3 => {
+            println!("You selected option {}: Exit programme. Bye!", option)
         }
         _ => println!("No option selected"),
     };
