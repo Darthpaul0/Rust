@@ -21,7 +21,10 @@ fn main() {
     );
 
     // Challenge 2
-    println!("{:?}", find_word_sum(313, &charmap));
+    println!("Challenge 2 result: {:?}", find_word_sum(313, &charmap));
+
+    // Challenge 3
+    println!("Challenge 3 result: {}", odd_words(&charmap));
 
     // TESTING
     // some testing for challenge 1
@@ -81,4 +84,19 @@ fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
     buf.lines()
         .map(|l| l.expect("Could not parse line"))
         .collect()
+}
+
+// Challenge 3: How many words have an odd letter sum?
+/**
+ * Function that return those words wich sum is an odd number
+ */
+fn odd_words(charmap: &HashMap<char, i32>) -> i32 {
+    let words_list = lines_from_file("./words_alpha.txt");
+    let mut odd_words: i32 = 0;
+    for word in words_list {
+        if lettersum(word.to_owned(), charmap) % 2 != 0 {
+            odd_words = odd_words + 1;
+        }
+    }
+    odd_words
 }
