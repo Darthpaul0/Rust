@@ -17,7 +17,7 @@ fn main() {
     // Challenge 1
     println!(
         "This is challenge 1 result: {}",
-        lettersum(String::from("microspectrophotometries"), &charmap)
+        lettersum("microspectrophotometries", &charmap)
     );
 
     // Challenge 2
@@ -28,16 +28,13 @@ fn main() {
 
     // TESTING
     // some testing for challenge 1
-    assert_eq!(lettersum(String::from("abcd"), &charmap), 10);
-    assert_eq!(lettersum(String::from(""), &charmap), 0);
-    assert_eq!(lettersum(String::from("a"), &charmap), 1);
-    assert_eq!(lettersum(String::from("z"), &charmap), 26);
-    assert_eq!(lettersum(String::from("cab"), &charmap), 6);
-    assert_eq!(lettersum(String::from("excellent"), &charmap), 100);
-    assert_eq!(
-        lettersum(String::from("microspectrophotometries"), &charmap),
-        317
-    );
+    assert_eq!(lettersum("abcd", &charmap), 10);
+    assert_eq!(lettersum("", &charmap), 0);
+    assert_eq!(lettersum("a", &charmap), 1);
+    assert_eq!(lettersum("z", &charmap), 26);
+    assert_eq!(lettersum("cab", &charmap), 6);
+    assert_eq!(lettersum("excellent", &charmap), 100);
+    assert_eq!(lettersum("microspectrophotometries", &charmap), 317);
 
     // some testing for challenge 2
     assert_eq!(find_word_sum(313, &charmap), ["polytetrafluoroethylene"]);
@@ -47,7 +44,7 @@ fn main() {
 
 //Challenge 1: Assign every lowercase letter a value,
 // from 1 for a to 26 for z.
-fn lettersum(word: String, charmap: &HashMap<char, i32>) -> i32 {
+fn lettersum(word: &str, charmap: &HashMap<char, i32>) -> i32 {
     // convert word to iterator
     word.to_lowercase()
         .chars()
@@ -57,22 +54,19 @@ fn lettersum(word: String, charmap: &HashMap<char, i32>) -> i32 {
         .sum()
 }
 
-// Challenge 2: Create a function that finds a word word with a given sum
+// Challenge 2: Create a function that finds a word with a given sum
 // in the word list provided. For instance, polytetrafluoroethylene is
 // the only word with a sum of 313.
 fn find_word_sum(sum: i32, charmap: &HashMap<char, i32>) -> Vec<String> {
     // 1. Read file
     let word_list = lines_from_file("./words_alpha.txt");
-    let mut correct_words: Vec<String> = Vec::new();
 
-    // 2. Compare the sum of each word with the provided sum
-    for word in word_list {
-        if lettersum(word.to_owned(), charmap) == sum {
-            // 3. Return the words that satisfy the condition
-            correct_words.push(word);
-        }
-    }
-    correct_words
+    word_list
+    // make it iterable; using into_iter to get an owned version of the iterator
+        .into_iter()
+        // filter those words which the sum is the specificied 
+        .filter(|word| lettersum(word, charmap) == sum)
+        .collect()
 }
 
 /**
@@ -91,12 +85,13 @@ fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
  * Function that return those words wich sum is an odd number
  */
 fn odd_words(charmap: &HashMap<char, i32>) -> i32 {
-    let words_list = lines_from_file("./words_alpha.txt");
-    let mut odd_words: i32 = 0;
-    for word in words_list {
-        if lettersum(word.to_owned(), charmap) % 2 != 0 {
-            odd_words = odd_words + 1;
-        }
-    }
-    odd_words
+    // let words_list = lines_from_file("./words_alpha.txt");
+    // let mut odd_words: i32 = 0;
+    // for word in words_list {
+    //     if lettersum(word.to_owned(), charmap) % 2 != 0 {
+    //         odd_words = odd_words + 1;
+    //     }
+    // }
+    // odd_words
+    0
 }
