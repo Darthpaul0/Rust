@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 /**
- * Assign every lowercase letter a value, from 1 for a to 26 for z. Given a string of lowercase letters,
+ *  Part 1. Assign every lowercase letter a value, from 1 for a to 26 for z. Given a string of lowercase letters,
  * find the sum of the values of the letters in the string.
  */
 
@@ -14,6 +14,7 @@ fn main() {
         charmap.insert(letter, i as i32 + 1);
     }
 
+    // some testing
     assert_eq!(lettersum(String::from("abcd"), &charmap), 10);
     assert_eq!(lettersum(String::from(""), &charmap), 0);
     assert_eq!(lettersum(String::from("a"), &charmap), 1);
