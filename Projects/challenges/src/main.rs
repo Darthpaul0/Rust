@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use std::time::{Duration, Instant};
 use std::{
     fs::File,
     io::{prelude::*, BufReader},
@@ -7,11 +8,11 @@ use std::{
 
 fn main() {
     // Create new HasMap
-    let mut charmap: HashMap<char, i32> = HashMap::new();
+    let mut char_map: HashMap<char, i32> = HashMap::new();
 
     // fill HashMap with letter and its value
     for (i, letter) in ('a'..='z').enumerate() {
-        charmap.insert(letter, i as i32 + 1);
+        char_map.insert(letter, i as i32 + 1);
     }
     // CHALLENGES RESOLUTION
     // Challenge 1
@@ -21,28 +22,38 @@ fn main() {
     //println!("Challenge 2 result: {:?}", find_word_sum(313, &charmap));
 
     // Challenge 2.1
-    println!("Challenge 2.1 result: {:?}", word_group(5, &charmap));
+    println!(
+        "Challenge 2.1 result: {:?}",
+        word_group_by_sum(5, &char_map)
+    );
 
     // Challenge 3
     //println!("Challenge 3 result: {}", odd_words(&charmap));
 
     // TESTING
     // some testing for challenge 1
-    assert_eq!(lettersum("abcd", &charmap), 10);
-    assert_eq!(lettersum("", &charmap), 0);
-    assert_eq!(lettersum("a", &charmap), 1);
-    assert_eq!(lettersum("z", &charmap), 26);
-    assert_eq!(lettersum("cab", &charmap), 6);
-    assert_eq!(lettersum("excellent", &charmap), 100);
-    assert_eq!(lettersum("microspectrophotometries", &charmap), 317);
+    assert_eq!(lettersum("abcd", &char_map), 10);
+    assert_eq!(lettersum("", &char_map), 0);
+    assert_eq!(lettersum("a", &char_map), 1);
+    assert_eq!(lettersum("z", &char_map), 26);
+    assert_eq!(lettersum("cab", &char_map), 6);
+    assert_eq!(lettersum("excellent", &char_map), 100);
+    assert_eq!(lettersum("microspectrophotometries", &char_map), 317);
 
     // some testing for challenge 2
-    assert_eq!(find_word_sum(313, &charmap), ["polytetrafluoroethylene"]);
-    assert_eq!(find_word_sum(1, &charmap), ["a"]);
-    assert_eq!(find_word_sum(2, &charmap), ["aa", "b"]);
+    dbg!("Original sum");
+    let start = Instant::now();
 
-    //dbg!(&"Attempting to pre-cache every word in the dictionary");
-    let cached_words = assign_value(&charmap);
+    assert_eq!(find_word_sum(313, &char_map), ["polytetrafluoroethylene"]);
+    assert_eq!(find_word_sum(1, &char_map), ["a"]);
+    assert_eq!(find_word_sum(2, &char_map), ["aa", "b"]);
+
+    let duration = start.elapsed();
+    println!("Time elapsed: {:?}", duration);
+
+    dbg!("Attempting to pre-cache every word in the dictionary");
+
+    let cached_words = assign_value(&char_map);
     assert_eq!(cached_words.is_empty(), false);
     assert_eq!(
         cached_words
@@ -51,6 +62,34 @@ fn main() {
             .contains(&String::from("polytetrafluoroethylene")),
         true
     );
+
+    dbg!("Calling 'improved' partial sum");
+
+    let start = Instant::now();
+
+    assert_eq!(
+        find_word_sum_improved(313, &char_map),
+        ["polytetrafluoroethylene"]
+    );
+    assert_eq!(find_word_sum_improved(1, &char_map), ["a"]);
+    assert_eq!(find_word_sum_improved(2, &char_map), ["aa", "b"]);
+
+    let duration = start.elapsed();
+    println!("Time elapsed: {:?}", duration);
+
+    dbg!("Calling iterative partial sum");
+
+    let start = Instant::now();
+
+    assert_eq!(
+        find_word_sum_iterative(313, &char_map),
+        ["polytetrafluoroethylene"]
+    );
+    assert_eq!(find_word_sum_iterative(1, &char_map), ["a"]);
+    assert_eq!(find_word_sum_iterative(2, &char_map), ["aa", "b"]);
+
+    let duration = start.elapsed();
+    println!("Time elapsed: {:?}", duration);
 
     // some testing for challenge 3
 }
@@ -62,7 +101,7 @@ fn lettersum(word: &str, charmap: &HashMap<char, i32>) -> i32 {
     word.to_lowercase()
         .chars()
         // check if a letter is in the HashMap
-        .map(|c| charmap.get(&c).unwrap_or(&0).to_owned())
+        .map(|char| charmap.get(&char).unwrap_or(&0).to_owned())
         // add the result obtained
         .sum()
 }
@@ -80,6 +119,20 @@ fn find_word_sum(sum: i32, charmap: &HashMap<char, i32>) -> Vec<String> {
         // filter those words which the sum is the specificied
         .filter(|word| lettersum(word, charmap) == sum)
         .collect()
+}
+
+fn find_word_sum_iterative(sum: i32, charmap: &HashMap<char, i32>) -> Vec<String> {
+    // 1. Read file
+    let word_list = lines_from_file("./words_alpha.txt");
+    let mut list = Vec::new();
+
+    for word in word_list.into_iter() {
+        if lettersum(word.as_str(), &charmap) == sum {
+            list.push(word);
+        }
+    }
+
+    list
 }
 
 /**
@@ -114,7 +167,7 @@ fn assign_value(charmap: &HashMap<char, i32>) -> HashMap<i32, Vec<String>> {
     word_map
 }
 
-fn word_group(sum: i32, charmap: &HashMap<char, i32>) -> Vec<String> {
+fn word_group_by_sum(sum: i32, charmap: &HashMap<char, i32>) -> Vec<String> {
     let word_map_sum = assign_value(charmap);
     let mut correct_words: Vec<String> = Vec::new();
     for (key, value) in word_map_sum.into_iter() {
@@ -126,7 +179,33 @@ fn word_group(sum: i32, charmap: &HashMap<char, i32>) -> Vec<String> {
 }
 
 // Challenge 2.2
-fn find_word_sum_improved() {}
+/**
+ * It's improved because it will skip those words which sum is greater
+ * than the specified sum before reading all chars
+ */
+fn find_word_sum_improved(sum: i32, charmap: &HashMap<char, i32>) -> Vec<String> {
+    // 1. Read file
+    let word_list: Vec<String> = lines_from_file("./words_alpha.txt");
+    let mut correct_words: Vec<String> = Vec::new();
+
+    for word in word_list.into_iter() {
+        let mut tmp_sum = 0;
+
+        for i in 0..word.len() {
+            tmp_sum += lettersum(&word[i..=i], charmap);
+
+            if tmp_sum > sum {
+                break;
+            }
+        }
+
+        if tmp_sum == sum {
+            correct_words.push(word);
+        }
+    }
+
+    correct_words
+}
 
 // Challenge 3: How many words have an odd letter sum?
 
