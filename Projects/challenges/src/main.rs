@@ -15,13 +15,13 @@ fn main() {
     }
     // CHALLENGES RESOLUTION
     // Challenge 1
-    println!(
-        "This is challenge 1 result: {}",
-        lettersum("microspectrophotometries", &charmap)
-    );
+    //println!("Challenge 1 result: {}",lettersum("microspectrophotometries", &charmap));
 
     // Challenge 2
-    println!("Challenge 2 result: {:?}", find_word_sum(313, &charmap));
+    //println!("Challenge 2 result: {:?}", find_word_sum(313, &charmap));
+
+    // Challenge 2.1
+    println!("Challenge 2.1 result: {:?}", word_group(5, &charmap));
 
     // Challenge 3
     //println!("Challenge 3 result: {}", odd_words(&charmap));
@@ -41,7 +41,7 @@ fn main() {
     assert_eq!(find_word_sum(1, &charmap), ["a"]);
     assert_eq!(find_word_sum(2, &charmap), ["aa", "b"]);
 
-    dbg!(&"Attempting to pre-cache every word in the dictionary");
+    //dbg!(&"Attempting to pre-cache every word in the dictionary");
     let cached_words = assign_value(&charmap);
     assert_eq!(cached_words.is_empty(), false);
     assert_eq!(
@@ -50,7 +50,7 @@ fn main() {
             .unwrap()
             .contains(&String::from("polytetrafluoroethylene")),
         true
-    )
+    );
 
     // some testing for challenge 3
 }
@@ -112,6 +112,17 @@ fn assign_value(charmap: &HashMap<char, i32>) -> HashMap<i32, Vec<String>> {
 
     // return Hashmap
     word_map
+}
+
+fn word_group(sum: i32, charmap: &HashMap<char, i32>) -> Vec<String> {
+    let word_map_sum = assign_value(charmap);
+    let mut correct_words: Vec<String> = Vec::new();
+    for (key, value) in word_map_sum.into_iter() {
+        if key == sum {
+            correct_words = value;
+        }
+    }
+    correct_words
 }
 
 // Challenge 2.2
