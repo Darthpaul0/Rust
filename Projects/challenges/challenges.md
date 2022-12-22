@@ -13,6 +13,7 @@ Assign value to each word in the word list before read the sum, this way you can
 
 ### Challenge 2.2: Possible optimization 2
 Read each character of the word and stops if its greater than the specified sum
+
 ## Challenge 3
 
 How many words have an odd letter sum?
