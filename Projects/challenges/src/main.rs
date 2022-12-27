@@ -3,10 +3,12 @@ use std::time::Instant;
 
 mod challenge_1;
 mod challenge_2;
+mod challenge_3;
 use crate::challenge_1::lettersum;
 use crate::challenge_2::{
     assign_value, find_word_sum, find_word_sum_improved, find_word_sum_iterative, word_group_by_sum,
 };
+use crate::challenge_3::odd_words;
 
 fn main() {
     // Create new HasMap
@@ -18,24 +20,33 @@ fn main() {
     }
 
     // CHALLENGES RESOLUTION
-    // Challenge 1
-    println!(
-        "Challenge 1 result: {}",
-        lettersum("microspectrophotometries", &char_map)
-    );
+    {
+        // Challenge 1
+        println!(
+            "Challenge 1 result: {}",
+            lettersum("microspectrophotometries", &char_map)
+        );
 
-    // Challenge 2
-    println!("Challenge 2 result: {:?}", find_word_sum(313, &char_map));
+        // Challenge 2
+        println!("Challenge 2 result: {:?}", find_word_sum(313, &char_map));
 
-    // Challenge 2.1
-    // Assign a value to each word in the word list before read the sum, this way you can delimit your search
-    println!(
-        "Challenge 2.1 result: {:?}",
-        word_group_by_sum(5, &char_map)
-    );
+        // Challenge 2.1
+        // Assign a value to each word in the word list before read the sum, this way you can delimit your search
+        println!(
+            "Challenge 2.1 result: {:?}",
+            word_group_by_sum(5, &char_map)
+        );
 
-    // Challenge 3
-    //println!("Challenge 3 result: {}", odd_words(&charmap));
+        // Challenge 2.2
+        // Read each character of the word and stops if its greater than the specified sum
+        println!(
+            "Challenge 2.2 result: {:?}",
+            find_word_sum_improved(5, &char_map)
+        );
+
+        // Challenge 3
+        println!("Challenge 3 result: {}", odd_words(&char_map));
+    }
 
     // TESTING
     // some testing for challenge 1
@@ -101,12 +112,3 @@ fn main() {
         // some testing for challenge 3
     }
 }
-
-// Challenge 3: How many words have an odd letter sum?
-
-//Function that return those words wich sum is an odd number
-
-//fn odd_words(charmap: &HashMap<char, i32>) -> i32 {
-//let words_list = lines_from_file("./words_alpha.txt");
-//words_list.into_iter().filter(|odd_word| lettersum(odd_word, charmap) % 2 == 0).collect().
-//}
