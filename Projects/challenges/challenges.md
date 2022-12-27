@@ -9,9 +9,11 @@ Assign every lowercase letter a value, from 1 for a to 26 for z. Given a string 
 Create a function that finds a word with a given sum in the word list provided. For instance, polytetrafluoroethylene is the only word with a sum of 313.
 
 ### Challenge 2.1: Possible optimization 1
-Assign value to each word in the word list before read the sum, this way you can delimit your search
+
+Assign a value to each word in the word list before read the sum, this way you can delimit your search
 
 ### Challenge 2.2: Possible optimization 2
+
 Read each character of the word and stops if its greater than the specified sum
 
 ## Challenge 3
