@@ -38,4 +38,17 @@ cytotoxicity and unreservedness have the same letter sum as each other (188), an
 
 The list of word { geographically, eavesdropper, woodworker, oxymorons } contains 4 words. Each word in the list has both a different number of letters, and a different letter sum. The list is sorted both in descending order of word length, and ascending order of letter sum. What's the longest such list you can find?
 
+### Challenge 8
+
+You need to return a string that looks like a diamond shape when printed on the screen, using asterisk (\*) characters. Trailing spaces should be removed, and every line must be terminated with a newline character (\n).
+
+Return null/nil/None/... if the input is an even number or negative, as it is not possible to print a diamond of even or negative size.
+
+Examples
+A size 3 diamond:
+` *`
+`***`
+` *`
+`...which would appear as a string of " *\n***\n *\n"`
+
 ## Feel free to add more challenges!
