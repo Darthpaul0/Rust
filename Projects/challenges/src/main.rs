@@ -5,12 +5,14 @@ mod challenge_1;
 mod challenge_2;
 mod challenge_3;
 mod challenge_4;
+mod challenge_5;
 use crate::challenge_1::lettersum;
 use crate::challenge_2::{
     assign_value, find_word_sum, find_word_sum_improved, find_word_sum_iterative, word_group_by_sum,
 };
 use crate::challenge_3::odd_words;
 use crate::challenge_4::most_common_sum;
+use crate::challenge_5::words_equals_separated;
 
 fn main() {
     // Create new HasMap
@@ -24,37 +26,46 @@ fn main() {
     // CHALLENGES RESOLUTION
     {
         // Challenge 1
-        println!(
-            "Challenge 1 result: {}",
-            lettersum("microspectrophotometries", &char_map)
-        );
+        // println!(
+        // "Challenge 1 result >>> {}",
+        // lettersum("microspectrophotometries", &char_map)
+        // );
 
         // Challenge 2
-        println!("Challenge 2 result: {:?}", find_word_sum(313, &char_map));
+        // println!("Challenge 2 result >>> {:?}", find_word_sum(313, &char_map));
 
         // Challenge 2.1
         // Assign a value to each word in the word list before read the sum, this way you can delimit your search
-        println!(
-            "Challenge 2.1 result: {:?}",
-            word_group_by_sum(313, &char_map)
-        );
+        // println!(
+        // "Challenge 2.1 result >>> {:?}",
+        // word_group_by_sum(313, &char_map)
+        // );
 
         // Challenge 2.2
         // Read each character of the word and stops if its greater than the specified sum
-        println!(
-            "Challenge 2.2 result: {:?}",
-            find_word_sum_improved(313, &char_map)
-        );
+        // println!(
+        // "Challenge 2.2 result >>> {:?}",
+        // find_word_sum_improved(313, &char_map)
+        // );
 
         // Challenge 3
-        println!("Challenge 3 result: {}", odd_words(&char_map));
+        // println!(
+        // "Challenge 3 result >>> There are {} odd words",
+        // odd_words(&char_map)
+        // );
 
         // Challenge 4
+        // println!(
+        // "Challenge 4 result >>> The most common letter sum is: {:?}, there are {:?} words",
+        // lettersum(most_common_sum(&char_map).get(0).unwrap(), &char_map),
+        // most_common_sum(&char_map).len()
+        // );
+
+        // Challenge 5
         println!(
-            "Challenge 4 result >>> The most common letter sum is: {:?}, there are {:?} words",
-            lettersum(most_common_sum(&char_map).get(0).unwrap(), &char_map),
-            most_common_sum(&char_map).len()
-        );
+            "Challenge 5 result >>> The words are {:?}",
+            words_equals_separated(316, 0, &char_map)
+        )
     }
 
     // TESTING
