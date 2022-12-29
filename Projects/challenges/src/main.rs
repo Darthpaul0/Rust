@@ -1,3 +1,5 @@
+// this way cargo will stop bothering us with warnings!
+#![allow(dead_code, unused_imports)]
 use std::collections::HashMap;
 use std::time::Instant;
 
@@ -64,71 +66,71 @@ fn main() {
         // Challenge 5
         println!(
             "Challenge 5 result >>> The words are {:?}",
-            words_equals_separated(316, 0, &char_map)
+            words_equals_separated(88, 5, &char_map)
         )
     }
 
     // TESTING
     // some testing for challenge 1
     {
-        assert_eq!(lettersum("abcd", &char_map), 10);
-        assert_eq!(lettersum("", &char_map), 0);
-        assert_eq!(lettersum("a", &char_map), 1);
-        assert_eq!(lettersum("z", &char_map), 26);
-        assert_eq!(lettersum("cab", &char_map), 6);
-        assert_eq!(lettersum("excellent", &char_map), 100);
-        assert_eq!(lettersum("microspectrophotometries", &char_map), 317);
+        //     assert_eq!(lettersum("abcd", &char_map), 10);
+        //     assert_eq!(lettersum("", &char_map), 0);
+        //     assert_eq!(lettersum("a", &char_map), 1);
+        //     assert_eq!(lettersum("z", &char_map), 26);
+        //     assert_eq!(lettersum("cab", &char_map), 6);
+        //     assert_eq!(lettersum("excellent", &char_map), 100);
+        //     assert_eq!(lettersum("microspectrophotometries", &char_map), 317);
 
-        // some testing for challenge 2
-        dbg!("Original sum");
-        let start = Instant::now();
+        //     // some testing for challenge 2
+        //     dbg!("Original sum");
+        //     let start = Instant::now();
 
-        assert_eq!(find_word_sum(313, &char_map), ["polytetrafluoroethylene"]);
-        assert_eq!(find_word_sum(1, &char_map), ["a"]);
-        assert_eq!(find_word_sum(2, &char_map), ["aa", "b"]);
+        //     assert_eq!(find_word_sum(313, &char_map), ["polytetrafluoroethylene"]);
+        //     assert_eq!(find_word_sum(1, &char_map), ["a"]);
+        //     assert_eq!(find_word_sum(2, &char_map), ["aa", "b"]);
 
-        let duration = start.elapsed();
-        println!("Time elapsed: {:?}", duration);
+        //     let duration = start.elapsed();
+        //     println!("Time elapsed: {:?}", duration);
 
-        dbg!("Attempting to pre-cache every word in the dictionary");
+        //     dbg!("Attempting to pre-cache every word in the dictionary");
 
-        let cached_words = assign_value(&char_map);
-        assert_eq!(cached_words.is_empty(), false);
-        assert_eq!(
-            cached_words
-                .get(&313)
-                .unwrap()
-                .contains(&String::from("polytetrafluoroethylene")),
-            true
-        );
+        //     let cached_words = assign_value(&char_map);
+        //     assert_eq!(cached_words.is_empty(), false);
+        //     assert_eq!(
+        //         cached_words
+        //             .get(&313)
+        //             .unwrap()
+        //             .contains(&String::from("polytetrafluoroethylene")),
+        //         true
+        //     );
 
-        dbg!("Calling 'improved' partial sum");
+        //     dbg!("Calling 'improved' partial sum");
 
-        let start = Instant::now();
+        //     let start = Instant::now();
 
-        assert_eq!(
-            find_word_sum_improved(313, &char_map),
-            ["polytetrafluoroethylene"]
-        );
-        assert_eq!(find_word_sum_improved(1, &char_map), ["a"]);
-        assert_eq!(find_word_sum_improved(2, &char_map), ["aa", "b"]);
+        //     assert_eq!(
+        //         find_word_sum_improved(313, &char_map),
+        //         ["polytetrafluoroethylene"]
+        //     );
+        //     assert_eq!(find_word_sum_improved(1, &char_map), ["a"]);
+        //     assert_eq!(find_word_sum_improved(2, &char_map), ["aa", "b"]);
 
-        let duration = start.elapsed();
-        println!("Time elapsed: {:?}", duration);
+        //     let duration = start.elapsed();
+        //     println!("Time elapsed: {:?}", duration);
 
-        dbg!("Calling iterative partial sum");
+        //     dbg!("Calling iterative partial sum");
 
-        let start = Instant::now();
+        //     let start = Instant::now();
 
-        assert_eq!(
-            find_word_sum_iterative(313, &char_map),
-            ["polytetrafluoroethylene"]
-        );
-        assert_eq!(find_word_sum_iterative(1, &char_map), ["a"]);
-        assert_eq!(find_word_sum_iterative(2, &char_map), ["aa", "b"]);
+        //     assert_eq!(
+        //         find_word_sum_iterative(313, &char_map),
+        //         ["polytetrafluoroethylene"]
+        //     );
+        //     assert_eq!(find_word_sum_iterative(1, &char_map), ["a"]);
+        //     assert_eq!(find_word_sum_iterative(2, &char_map), ["aa", "b"]);
 
-        let duration = start.elapsed();
-        println!("Time elapsed: {:?}", duration);
-        // some testing for challenge 3
+        //     let duration = start.elapsed();
+        //     println!("Time elapsed: {:?}", duration);
+        //     // some testing for challenge 3
     }
 }
