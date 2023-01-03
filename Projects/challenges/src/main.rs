@@ -8,6 +8,7 @@ mod challenge_2;
 mod challenge_3;
 mod challenge_4;
 mod challenge_5;
+mod challenge_6;
 use crate::challenge_1::lettersum;
 use crate::challenge_2::{
     assign_value, find_word_sum, find_word_sum_improved, find_word_sum_iterative, word_group_by_sum,
@@ -65,7 +66,7 @@ fn main() {
 
         // Challenge 5
         println!(
-            "Challenge 5 result >>> The words are {:?}",
+            "Challenge 5 result >>> {:?}",
             words_equals_separated(88, 5, &char_map)
         )
     }

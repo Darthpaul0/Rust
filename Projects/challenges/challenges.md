@@ -28,7 +28,7 @@ There are 1921 words with a letter sum of 100, making it the second most common 
 
 ### Challenge 5
 
-zyzzyva and biodegradabilities have the same letter sum as each other (151), and their lengths differ by 11 letters. Find the other pair of words with the same letter sum whose lengths differ by 11 letters.
+zyzzyva and biodegradabilities have the same letter sum as each other (88), and their lengths differ by 5 letters. Find the other pair of words with the same letter sum whose lengths differ by 11 letters.
 
 ### Challenge 6
 
