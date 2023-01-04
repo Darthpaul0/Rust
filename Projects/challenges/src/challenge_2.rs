@@ -85,7 +85,7 @@ pub fn word_group_by_sum(sum: i32, charmap: &HashMap<char, i32>) -> Vec<String> 
  */
 pub fn find_word_sum_improved(sum: i32, charmap: &HashMap<char, i32>) -> Vec<String> {
     // 1. Read file
-    let word_list: Vec<String> = lines_from_file("./words_alpha.txt");
+    let word_list = lines_from_file("./words_alpha.txt");
     let mut correct_words: Vec<String> = Vec::new();
 
     for word in word_list.into_iter() {

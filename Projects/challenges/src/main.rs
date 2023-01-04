@@ -16,6 +16,7 @@ use crate::challenge_2::{
 use crate::challenge_3::odd_words;
 use crate::challenge_4::most_common_sum;
 use crate::challenge_5::words_equals_separated;
+use crate::challenge_6::words_diff_letters;
 
 fn main() {
     // Create new HasMap
@@ -65,10 +66,13 @@ fn main() {
         // );
 
         // Challenge 5
-        println!(
-            "Challenge 5 result >>> {:?}",
-            words_equals_separated(88, 5, &char_map)
-        )
+        // println!(
+        // "Challenge 5 result >>> {:?}",
+        // words_equals_separated(88, 5, &char_map)
+        // )
+
+        // Challenge 6
+        println!("Challenge 6 result >>> {:?}", words_diff_letters(&char_map))
     }
 
     // TESTING
