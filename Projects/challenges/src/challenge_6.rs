@@ -2,36 +2,68 @@
 // Find a pair of words that have no letters in common, and that have the same letter sum, which is larger than 188.
 // (There are two such pairs, and one word appears in both pairs.)
 
-use std::{collections::HashMap, result};
+use std::{clone, collections::HashMap, result};
 
 use array_tool::vec::Intersect;
 
 use crate::challenge_2::assign_value;
 
-pub fn words_diff_letters(charmap: &HashMap<char, i32>) -> Vec<String> {
-    let mut result: Vec<String> = Vec::new();
+pub fn words_diff_letters(charmap: &HashMap<char, i32>) -> HashMap<i32, Vec<String>> {
+    let mut result: HashMap<i32, Vec<String>> = HashMap::new();
 
     // iterate over the main HashMap
     let precached_list = assign_value(charmap);
 
-    // get group of words from each index
-    for word_group in precached_list {}
+    // aux variables
+    let mut index = 0;
+    let mut flag = false;
 
-    // iterate over each word in the group comparing its characters
+    // get group of words from each index from the original HashMap
+    for word_group in precached_list {
+        // store a temporal word to compare
+        let tmp = word_group
+            .1
+            .get(index)
+            .clone()
+            .unwrap_or(&"nichts".to_string())
+            .to_owned();
+        println!("------");
+        println!("{}", tmp);
+        // iter over each group of word
+        for word in word_group.1.clone() {
+            println!("{}", word);
+            println!("------");
+            if !letters_in_common(tmp.clone(), word.clone()) {
+                result.insert(word_group.0, vec![tmp, word]);
+                flag = true;
+                break;
+            }
+        }
+        index += 1;
+        if flag {
+            break;
+        }
+    }
 
     result
 }
 /**
- * This function compares two words and returns true if they don't have any letter in common
+ * This function compares two words and returns true if they have any letter in common
  */
-pub fn compare_words(first: String, second: String) -> bool {
-    // trait Chars {}
-    // // turn words into vectors
-    // let vec_first = vec![first.chars()];
-    // let vec_second = vec![second.chars()];
+fn letters_in_common(first: String, second: String) -> bool {
+    // turn words into vectors
+    let vec_first = first.chars();
+    let vec_second = second.chars();
+    let mut flag = false;
 
-    // if vec_first.intersect(vec_second) {
-    //     return false;
-    // }
-    true
+    for letter in vec_first {
+        for letra in vec_second.clone() {
+            if letter == letra {
+                flag = true;
+                break;
+            }
+        }
+    }
+
+    flag
 }
