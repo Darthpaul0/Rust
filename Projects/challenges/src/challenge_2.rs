@@ -27,7 +27,7 @@ pub fn find_word_sum_iterative(sum: i32, charmap: &HashMap<char, i32>) -> Vec<St
     let mut list = Vec::new();
 
     for word in word_list.into_iter() {
-        if lettersum(word.as_str(), &charmap) == sum {
+        if lettersum(word.as_str(), charmap) == sum {
             list.push(word);
         }
     }

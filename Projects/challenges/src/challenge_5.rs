@@ -45,7 +45,7 @@ pub fn words_equals_separated(
         index += 1;
     }
     // provide some information to user
-    if separated_words.len() == 0 {
+    if separated_words.is_empty() {
         separated_words.push(String::from("No words found!"));
         separated_words
     } else {

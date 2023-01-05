@@ -21,18 +21,22 @@ pub fn words_diff_letters(charmap: &HashMap<char, i32>) -> HashMap<i32, Vec<Stri
     // get group of words from each index from the original HashMap
     for word_group in precached_list {
         // store a temporal word to compare
+        println!("------");
         let tmp = word_group
             .1
             .get(index)
-            .clone()
-            .unwrap_or(&"nichts".to_string())
+            .unwrap_or(&"verdammt".to_string())
             .to_owned();
-        println!("------");
         println!("{}", tmp);
+        println!("------");
+
         // iter over each group of word
         for word in word_group.1.clone() {
+            println!("+++...");
             println!("{}", word);
-            println!("------");
+            println!("...+++");
+            // when we found two words that satisfies all the conditions
+            // we break both loops (the first by using a flag)
             if !letters_in_common(tmp.clone(), word.clone()) {
                 result.insert(word_group.0, vec![tmp, word]);
                 flag = true;
