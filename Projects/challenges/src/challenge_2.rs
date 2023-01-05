@@ -1,3 +1,6 @@
+// Challenge 2: Create a function that finds a word with a given sum
+// in the word list provided. For instance, polytetrafluoroethylene is
+// the only word with a sum of 313.
 use crate::challenge_1::lettersum;
 use std::{
     collections::HashMap,
@@ -6,9 +9,6 @@ use std::{
     path::Path,
 };
 
-// Challenge 2: Create a function that finds a word with a given sum
-// in the word list provided. For instance, polytetrafluoroethylene is
-// the only word with a sum of 313.
 pub fn find_word_sum(sum: i32, charmap: &HashMap<char, i32>) -> Vec<String> {
     // 1. Read file
     let word_list = lines_from_file("./words_alpha.txt");
@@ -38,7 +38,7 @@ pub fn find_word_sum_iterative(sum: i32, charmap: &HashMap<char, i32>) -> Vec<St
 /**
  * Function to read a file and return a Vec<String> with its content
  */
-fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
+pub fn lines_from_file(filename: impl AsRef<Path>) -> Vec<String> {
     let file = File::open(filename).expect("no such file");
     let buf = BufReader::new(file);
     buf.lines()

@@ -1,8 +1,8 @@
+// Challenge 3: How many words have an odd letter sum?
+// Function that return those words wich sum is an odd number
 use std::collections::HashMap;
 
 use crate::challenge_2::assign_value;
-// Challenge 3: How many words have an odd letter sum?
-//Function that return those words wich sum is an odd number
 
 pub fn odd_words(charmap: &HashMap<char, i32>) -> i32 {
     // define word groups by sum

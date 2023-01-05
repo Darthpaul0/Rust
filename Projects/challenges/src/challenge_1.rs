@@ -1,4 +1,4 @@
-//Challenge 1: Assign every lowercase letter a value,
+// Challenge 1: Assign every lowercase letter a value,
 // from 1 for a to 26 for z.
 use std::collections::HashMap;
 
