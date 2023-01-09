@@ -10,6 +10,7 @@ mod challenge_4;
 mod challenge_5;
 mod challenge_6;
 mod challenge_7;
+mod challenge_8;
 use crate::challenge_1::lettersum;
 use crate::challenge_2::{
     assign_value, find_word_sum, find_word_sum_improved, find_word_sum_iterative, word_group_by_sum,
@@ -19,6 +20,7 @@ use crate::challenge_4::most_common_sum;
 use crate::challenge_5::words_equals_separated;
 use crate::challenge_6::words_diff_letters;
 use crate::challenge_7::longest_list;
+use crate::challenge_8::create_diamond;
 
 fn main() {
     // Create new HasMap
@@ -77,7 +79,10 @@ fn main() {
         // println!("Challenge 6 result >>> {:?}", words_diff_letters(&char_map))
 
         // Challenge 7
-        println!("{:?}", longest_list())
+        // println!("{:?}", longest_list())
+
+        // Challenge 8
+        println!("{}", create_diamond(7));
     }
 
     // TESTING
