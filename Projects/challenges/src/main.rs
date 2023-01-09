@@ -6,6 +6,7 @@ use std::time::Instant;
 
 // imports
 mod challenges;
+mod codewars;
 use crate::challenges::challenge_1::lettersum;
 use crate::challenges::challenge_2::{find_word_sum, find_word_sum_improved, word_group_by_sum};
 use crate::challenges::challenge_3::odd_words;
@@ -78,6 +79,10 @@ fn main() {
         println!("{}", create_diamond(7));
     }
 
+    // CODEWARS CHALLENGES RESOLUTION
+    {
+        // Codewars 1
+    }
     // TESTING
     // some testing for challenge 1
     {
