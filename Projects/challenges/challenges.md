@@ -51,4 +51,7 @@ A size 3 diamond:
 ` *`
 `...which would appear as a string of " *\n***\n *\n"`
 
-## Feel free to add more challenges!
+## Want more challenges?
+
+I found this great repository where you can find challenges of different difficulty.
+https://github.com/JSextonn/rust-challenges
