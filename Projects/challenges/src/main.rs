@@ -1,26 +1,19 @@
 // this way cargo will stop bothering us with warnings!
 #![allow(dead_code, unused_imports)]
+
 use std::collections::HashMap;
 use std::time::Instant;
 
-mod challenge_1;
-mod challenge_2;
-mod challenge_3;
-mod challenge_4;
-mod challenge_5;
-mod challenge_6;
-mod challenge_7;
-mod challenge_8;
-use crate::challenge_1::lettersum;
-use crate::challenge_2::{
-    assign_value, find_word_sum, find_word_sum_improved, find_word_sum_iterative, word_group_by_sum,
-};
-use crate::challenge_3::odd_words;
-use crate::challenge_4::most_common_sum;
-use crate::challenge_5::words_equals_separated;
-use crate::challenge_6::words_diff_letters;
-use crate::challenge_7::longest_list;
-use crate::challenge_8::create_diamond;
+// imports
+mod challenges;
+use crate::challenges::challenge_1::lettersum;
+use crate::challenges::challenge_2::{find_word_sum, find_word_sum_improved, word_group_by_sum};
+use crate::challenges::challenge_3::odd_words;
+use crate::challenges::challenge_4::most_common_sum;
+use crate::challenges::challenge_5::words_equals_separated;
+use crate::challenges::challenge_6::words_diff_letters;
+use crate::challenges::challenge_7::longest_list;
+use crate::challenges::challenge_8::create_diamond;
 
 fn main() {
     // Create new HasMap
@@ -35,8 +28,8 @@ fn main() {
     {
         // Challenge 1
         // println!(
-        // "Challenge 1 result >>> {}",
-        // lettersum("microspectrophotometries", &char_map)
+        //     "Challenge 1 result >>> {}",
+        //     lettersum("microspectrophotometries", &char_map)
         // );
 
         // Challenge 2
@@ -45,41 +38,41 @@ fn main() {
         // Challenge 2.1
         // Assign a value to each word in the word list before read the sum, this way you can delimit your search
         // println!(
-        // "Challenge 2.1 result >>> {:?}",
-        // word_group_by_sum(313, &char_map)
+        //     "Challenge 2.1 result >>> {:?}",
+        //     word_group_by_sum(313, &char_map)
         // );
 
         // Challenge 2.2
         // Read each character of the word and stops if its greater than the specified sum
         // println!(
-        // "Challenge 2.2 result >>> {:?}",
-        // find_word_sum_improved(313, &char_map)
+        //     "Challenge 2.2 result >>> {:?}",
+        //     find_word_sum_improved(313, &char_map)
         // );
 
         // Challenge 3
         // println!(
-        // "Challenge 3 result >>> There are {} odd words",
-        // odd_words(&char_map)
+        //     "Challenge 3 result >>> There are {} odd words",
+        //     odd_words(&char_map)
         // );
 
         // Challenge 4
         // println!(
-        // "Challenge 4 result >>> The most common letter sum is: {:?}, there are {:?} words",
-        // lettersum(most_common_sum(&char_map).get(0).unwrap(), &char_map),
-        // most_common_sum(&char_map).len()
+        //     "Challenge 4 result >>> The most common letter sum is: {:?}, there are {:?} words",
+        //     lettersum(most_common_sum(&char_map).get(0).unwrap(), &char_map),
+        //     most_common_sum(&char_map).len()
         // );
 
         // Challenge 5
         // println!(
-        // "Challenge 5 result >>> {:?}",
-        // words_equals_separated(88, 5, &char_map)
-        // )
+        //     "Challenge 5 result >>> {:?}",
+        //     words_equals_separated(88, 5, &char_map)
+        // );
 
         // Challenge 6
-        // println!("Challenge 6 result >>> {:?}", words_diff_letters(&char_map))
+        // println!("Challenge 6 result >>> {:?}", words_diff_letters(&char_map));
 
         // Challenge 7
-        // println!("{:?}", longest_list())
+        // println!("{:?}", longest_list());
 
         // Challenge 8
         println!("{}", create_diamond(7));

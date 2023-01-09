@@ -53,5 +53,5 @@ A size 3 diamond:
 
 ## Want more challenges?
 
-I found this great repository where you can find challenges of different difficulty.
+I found this great repository where you can find challenges of different difficulty:
 https://github.com/JSextonn/rust-challenges
