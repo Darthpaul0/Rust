@@ -32,9 +32,6 @@ pub fn words_diff_letters(charmap: &HashMap<char, i32>) -> HashMap<i32, Vec<Stri
 
         // iter over each group of word
         for word in word_group.1.clone() {
-            println!("+++...");
-            println!("{}", word);
-            println!("...+++");
             // when we found two words that satisfies all the conditions
             // we break both loops (the first by using a flag)
             if !letters_in_common(tmp.clone(), word.clone()) {

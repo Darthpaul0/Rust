@@ -15,6 +15,7 @@ use crate::challenges::challenge_5::words_equals_separated;
 use crate::challenges::challenge_6::words_diff_letters;
 use crate::challenges::challenge_7::longest_list;
 use crate::challenges::challenge_8::create_diamond;
+use crate::codewars::codewars_1::sum_pairs;
 
 fn main() {
     // Create new HasMap
@@ -76,12 +77,16 @@ fn main() {
         // println!("{:?}", longest_list());
 
         // Challenge 8
-        println!("{}", create_diamond(7));
+        // println!("{}", create_diamond(7));
     }
 
     // CODEWARS CHALLENGES RESOLUTION
     {
         // Codewars 1
+        println!(
+            "Codewars 1 result >>> {:?}",
+            sum_pairs(vec![10, 5, 3, 2, 6, 3, 7, 5, 5], 8)
+        )
     }
     // TESTING
     // some testing for challenge 1
