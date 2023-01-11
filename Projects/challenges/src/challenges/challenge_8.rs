@@ -30,9 +30,6 @@ pub fn create_diamond(size: usize) -> String {
                 // draw diamond
                 diamond.push_str(&"*".repeat(x));
 
-                // draw whitespaces
-                diamond.push_str(&" ".repeat(whitespaces / 2));
-
                 // jump line
                 diamond.push('\n')
             }
@@ -53,9 +50,6 @@ pub fn create_diamond(size: usize) -> String {
 
                 // draw diamond
                 diamond.push_str(&"*".repeat(y));
-
-                // draw whitespaces
-                diamond.push_str(&" ".repeat(whitespaces / 2));
 
                 // jump line
                 diamond.push('\n')
