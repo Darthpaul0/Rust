@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::{collections::HashMap, ops::Index, slice::SliceIndex};
 
 /**
  * Given a list of integers and a single sum value,
@@ -13,22 +13,20 @@ use std::collections::HashMap;
  * Complete problem with example here --> https://www.codewars.com/kata/54d81488b981293527000c8f
 */
 
-pub fn sum_pairs(numbers: &[i8], sum: i8) -> Option<(i8, i8)> {
-    let mut correct_pair = None;
-
-    // aux
-    // loop over the numbers vector
-    for first in numbers.iter() {
-        // compare it with next numbers
-        // skipping first number to avoid repeating
-        for (pos, second) in numbers.iter().enumerate() {
-            // print!(" {pos}");
-            // print!(" {index}");
-            if first + second == sum {
-                correct_pair = Some((*first, *second));
+pub fn sum_pairs(ints: &[i8], s: i8) -> Option<Vec<(i8, i8, usize)>> {
+    let mut pairs = None;
+    let mut result: Vec<(i8, i8, usize)> = Vec::new();
+    let mut index = 0;
+    for i in ints {
+        for j in ints[index + 1..].iter() {
+            if i + j == s {
+                println!("{}", index);
+                result.push((*i, *j, index));
+                pairs = Some(result.clone());
                 break;
             }
         }
+        index += 1;
     }
-    correct_pair
+    pairs
 }

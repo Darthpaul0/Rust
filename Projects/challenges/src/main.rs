@@ -65,14 +65,14 @@ fn main() {
         // );
 
         // Challenge 5
-        println!(
-            "Challenge 5 result >>> {:?}",
-            words_equals_separated(132, 5, &char_map)
-        );
-        println!(
-            "Challenge 5 result (v2) >>> {:?}",
-            words_equals_separated_v2(11, &char_map)
-        );
+        // println!(
+        // "Challenge 5 result >>> {:?}",
+        // words_equals_separated(132, 5, &char_map)
+        // );
+        // println!(
+        // "Challenge 5 result (v2) >>> {:?}",
+        // words_equals_separated_v2(11, &char_map)
+        // );
 
         // Challenge 6
         // println!("Challenge 6 result >>> {:?}", words_diff_letters(&char_map));
@@ -87,10 +87,10 @@ fn main() {
     // CODEWARS CHALLENGES RESOLUTION
     {
         // Codewars 1
-        // println!(
-        // "Codewars 1 result >>> {:?}",
-        // sum_pairs(&[10, 5, 2, 3, 7, 5], 10)
-        // )
+        println!(
+            "Codewars 1 result >>> {:?}",
+            sum_pairs(&[10, 5, 2, 3, 7, 5], 10)
+        )
     }
     // TESTING
     // some testing for challenge 1
