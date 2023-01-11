@@ -2,7 +2,10 @@
 // zyzzyva and biodegradabilities have the same letter sum as each other (151), and their lengths differ by 11 letters.
 // Find the other pair of words with the same letter sum whose lengths differ by 11 letters.
 
-use std::collections::HashMap;
+use std::{
+    cmp::Ordering,
+    collections::{HashMap, HashSet},
+};
 
 use super::challenge_2::assign_value;
 
@@ -51,4 +54,32 @@ pub fn words_equals_separated(
     } else {
         separated_words
     }
+}
+
+pub fn words_equals_separated_v2(
+    separation: usize,
+    charmap: &HashMap<char, i32>,
+) -> HashSet<(String, String)> {
+    let words_by_sum = assign_value(charmap);
+
+    let mut matches: HashSet<(String, String)> = HashSet::new();
+
+    for (_, words) in words_by_sum.into_iter() {
+        for word in words.iter() {
+            for other_word in words.iter() {
+                let diff = (word.len() as i32 - other_word.len() as i32).abs();
+
+                if diff as usize == separation {
+                    let tupla = if word.len() < other_word.len() {
+                        (word.clone(), other_word.clone())
+                    } else {
+                        (other_word.clone(), word.clone())
+                    };
+                    matches.insert(tupla);
+                }
+            }
+        }
+    }
+
+    matches
 }

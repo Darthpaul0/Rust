@@ -11,7 +11,7 @@ use crate::challenges::challenge_1::lettersum;
 use crate::challenges::challenge_2::{find_word_sum, find_word_sum_improved, word_group_by_sum};
 use crate::challenges::challenge_3::odd_words;
 use crate::challenges::challenge_4::most_common_sum;
-use crate::challenges::challenge_5::words_equals_separated;
+use crate::challenges::challenge_5::*;
 use crate::challenges::challenge_6::words_diff_letters;
 use crate::challenges::challenge_7::longest_list;
 use crate::challenges::challenge_8::create_diamond;
@@ -65,10 +65,14 @@ fn main() {
         // );
 
         // Challenge 5
-        // println!(
-        //     "Challenge 5 result >>> {:?}",
-        //     words_equals_separated(88, 5, &char_map)
-        // );
+        println!(
+            "Challenge 5 result >>> {:?}",
+            words_equals_separated(132, 5, &char_map)
+        );
+        println!(
+            "Challenge 5 result (v2) >>> {:?}",
+            words_equals_separated_v2(11, &char_map)
+        );
 
         // Challenge 6
         // println!("Challenge 6 result >>> {:?}", words_diff_letters(&char_map));
@@ -77,7 +81,7 @@ fn main() {
         // println!("{:?}", longest_list());
 
         // Challenge 8
-        println!("{}", create_diamond(7));
+        // println!("{}", create_diamond(7));
     }
 
     // CODEWARS CHALLENGES RESOLUTION
@@ -85,7 +89,7 @@ fn main() {
         // Codewars 1
         // println!(
         // "Codewars 1 result >>> {:?}",
-        // sum_pairs(&[10, 5, 3, 2, 6, 3, 7, 5, 5, 2], 5)
+        // sum_pairs(&[10, 5, 2, 3, 7, 5], 10)
         // )
     }
     // TESTING

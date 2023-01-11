@@ -17,7 +17,6 @@ pub fn sum_pairs(numbers: &[i8], sum: i8) -> Option<(i8, i8)> {
     let mut correct_pair = None;
 
     // aux
-    let mut index = 0;
     // loop over the numbers vector
     for first in numbers.iter() {
         // compare it with next numbers
@@ -25,12 +24,10 @@ pub fn sum_pairs(numbers: &[i8], sum: i8) -> Option<(i8, i8)> {
         for (pos, second) in numbers.iter().enumerate() {
             // print!(" {pos}");
             // print!(" {index}");
-            if first + second == sum && pos < index {
-                index = pos;
+            if first + second == sum {
                 correct_pair = Some((*first, *second));
                 break;
             }
-            index += 1;
         }
     }
     correct_pair
