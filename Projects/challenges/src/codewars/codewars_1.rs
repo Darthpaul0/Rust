@@ -13,23 +13,24 @@ use std::collections::HashMap;
  * Complete problem with example here --> https://www.codewars.com/kata/54d81488b981293527000c8f
 */
 
-pub fn sum_pairs(numbers: Vec<i32>, sum: i32) -> Vec<i32> {
-    let correct_pair: Vec<i32> = Vec::new();
+pub fn sum_pairs(numbers: &[i8], sum: i8) -> Option<(i8, i8)> {
+    let mut correct_pair = None;
 
     // aux
-    let mut first_position;
-    let mut second_position;
+    let mut index = 0;
     // loop over the numbers vector
     for first in numbers.iter() {
         // compare it with next numbers
         // skipping first number to avoid repeating
-        for second in numbers.iter() {
-            // NOT WORKING
-            // POSITION METHOD FAILS TO RETURN THE CORRECT INDEXES
-
-            first_position = numbers.iter().position(|pos| pos == first).unwrap();
-            second_position = numbers.iter().position(|pos| pos == second).unwrap();
-            println!("[{},{}]", first_position, second_position);
+        for (pos, second) in numbers.iter().enumerate() {
+            // print!(" {pos}");
+            // print!(" {index}");
+            if first + second == sum && pos < index {
+                index = pos;
+                correct_pair = Some((*first, *second));
+                break;
+            }
+            index += 1;
         }
     }
     correct_pair

@@ -85,7 +85,7 @@ fn main() {
         // Codewars 1
         println!(
             "Codewars 1 result >>> {:?}",
-            sum_pairs(vec![10, 5, 3, 2, 6, 3, 7, 5, 5], 8)
+            sum_pairs(&[10, 5, 3, 2, 6, 3, 7, 5, 5, 2], 5)
         )
     }
     // TESTING
