@@ -8,7 +8,7 @@ use std::time::Instant;
 mod challenges;
 mod codewars;
 use crate::challenges::challenge_1::lettersum;
-use crate::challenges::challenge_2::{find_word_sum, find_word_sum_improved, word_group_by_sum};
+use crate::challenges::challenge_2::*;
 use crate::challenges::challenge_3::odd_words;
 use crate::challenges::challenge_4::most_common_sum;
 use crate::challenges::challenge_5::*;
@@ -16,6 +16,7 @@ use crate::challenges::challenge_6::words_diff_letters;
 use crate::challenges::challenge_7::longest_list;
 use crate::challenges::challenge_8::create_diamond;
 use crate::codewars::codewars_1::sum_pairs;
+use crate::codewars::codewars_2::cmp_same;
 
 fn main() {
     // Create new HasMap
@@ -87,9 +88,18 @@ fn main() {
     // CODEWARS CHALLENGES RESOLUTION
     {
         // Codewars 1
+        // println!(
+        // "Codewars 1 result >>> {:?}",
+        // sum_pairs(&[10, 5, 2, 3, 7, 5], 10)
+        // )
+
+        // Codewars 2
         println!(
-            "Codewars 1 result >>> {:?}",
-            sum_pairs(&[10, 5, 2, 3, 7, 5], 10)
+            "Codewars 2 result >>> {:?}",
+            cmp_same(
+                vec![121, 144, 19, 161, 19, 144, 19, 11],
+                vec![132, 14641, 20736, 361, 25921, 361, 20736, 361]
+            )
         )
     }
     // TESTING
