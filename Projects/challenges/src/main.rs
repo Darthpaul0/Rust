@@ -18,6 +18,7 @@ use crate::challenges::challenge_8::create_diamond;
 use crate::codewars::codewars_1::*;
 use crate::codewars::codewars_2::cmp_same;
 use crate::codewars::codewars_3::*;
+use crate::codewars::codewars_4::*;
 
 fn main() {
     // Create new HasMap
@@ -104,7 +105,10 @@ fn main() {
         // )
 
         // Codewars 3
-        println!("Last survivor is: {}", josephus_survivor(7, 2))
+        // println!("Last survivor is: {}", josephus_survivor(7, 2))
+
+        // Codewars 4
+        println!("Codewars 4 result >>> {:?}", perimeter(7))
     }
 
     // TESTING
