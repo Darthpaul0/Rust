@@ -17,6 +17,7 @@ use crate::challenges::challenge_7::longest_list;
 use crate::challenges::challenge_8::create_diamond;
 use crate::codewars::codewars_1::*;
 use crate::codewars::codewars_2::cmp_same;
+use crate::codewars::codewars_3::*;
 
 fn main() {
     // Create new HasMap
@@ -88,23 +89,27 @@ fn main() {
     // CODEWARS CHALLENGES RESOLUTION
     {
         // Codewars 1
-        println!(
-            "Codewars 1 result >>> {:?}",
-            sum_pairs(vec![10, 5, 2, 3, 7, 5], 10)
-        );
+        // println!(
+        // "Codewars 1 result >>> {:?}",
+        // sum_pairs(vec![10, 5, 2, 3, 7, 5], 10)
+        // );
 
         // Codewars 2
-        println!(
-            "Codewars 2 result >>> {:?}",
-            cmp_same(
-                vec![121, 144, 19, 161, 19, 144, 19, 11],
-                vec![121, 14641, 20736, 361, 25921, 361, 20736, 361]
-            )
-        )
+        // println!(
+        // "Codewars 2 result >>> {:?}",
+        // cmp_same(
+        // vec![121, 144, 19, 161, 19, 144, 19, 11],
+        // vec![121, 14641, 20736, 361, 25921, 361, 20736, 361]
+        // )
+        // )
+
+        // Codewars 3
+        println!("Last survivor is: {}", josephus_survivor(7, 2))
     }
+
     // TESTING
-    // some testing for challenge 1
     {
+        // some testing for challenge 1
         //     assert_eq!(lettersum("abcd", &char_map), 10);
         //     assert_eq!(lettersum("", &char_map), 0);
         //     assert_eq!(lettersum("a", &char_map), 1);
