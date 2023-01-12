@@ -56,25 +56,38 @@ pub fn words_equals_separated(
     }
 }
 
+/**
+ * This  version returns every pair that satisfies
+ */
 pub fn words_equals_separated_v2(
     separation: usize,
     charmap: &HashMap<char, i32>,
 ) -> HashSet<(String, String)> {
+    // store the words
     let words_by_sum = assign_value(charmap);
 
+    // we will return each valid pair
     let mut matches: HashSet<(String, String)> = HashSet::new();
 
+    // iterate over the words in the HashMap
     for (_, words) in words_by_sum.into_iter() {
+        // iterate over vector of words
         for word in words.iter() {
+            // iterate again over vector of words
             for other_word in words.iter() {
+                // store the difference between both words length
                 let diff = (word.len() as i32 - other_word.len() as i32).abs();
 
+                // check if the difference equals the specified separation
                 if diff as usize == separation {
+                    // conditional to avoid repeat some pairs
                     let tupla = if word.len() < other_word.len() {
                         (word.clone(), other_word.clone())
                     } else {
                         (other_word.clone(), word.clone())
                     };
+
+                    // insert the correct pair in the HashSet
                     matches.insert(tupla);
                 }
             }

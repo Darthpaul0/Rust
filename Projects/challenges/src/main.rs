@@ -15,7 +15,7 @@ use crate::challenges::challenge_5::*;
 use crate::challenges::challenge_6::words_diff_letters;
 use crate::challenges::challenge_7::longest_list;
 use crate::challenges::challenge_8::create_diamond;
-use crate::codewars::codewars_1::{sum_pairs, sum_pairs_v2};
+use crate::codewars::codewars_1::*;
 use crate::codewars::codewars_2::cmp_same;
 
 fn main() {
@@ -90,7 +90,7 @@ fn main() {
         // Codewars 1
         println!(
             "Codewars 1 result >>> {:?}",
-            sum_pairs_v2(vec![10, 5, 2, 3, 7, 5], 10)
+            sum_pairs(vec![10, 5, 2, 3, 7, 5], 10)
         );
 
         // Codewars 2
@@ -98,7 +98,7 @@ fn main() {
             "Codewars 2 result >>> {:?}",
             cmp_same(
                 vec![121, 144, 19, 161, 19, 144, 19, 11],
-                vec![132, 14641, 20736, 361, 25921, 361, 20736, 361]
+                vec![121, 14641, 20736, 361, 25921, 361, 20736, 361]
             )
         )
     }

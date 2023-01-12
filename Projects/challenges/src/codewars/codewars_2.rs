@@ -12,14 +12,21 @@ use std::result;
  */
 
 pub fn cmp_same(first: Vec<i32>, second: Vec<i32>) -> bool {
-    let mut result = true;
-    // square each number of the first array
-    let squared: Vec<i32> = first.iter().map(|number| number * number).collect();
-    // check if the second array contains the squared numbers
-    for number in squared.iter() {
-        if !second.contains(number) {
-            result = false;
-        }
+    // check length of both list
+    if first.len() != second.len() {
+        return false;
     }
-    result
+    // order and square first list
+    let mut squared: Vec<i32> = first.iter().map(|x| x * x).collect();
+    squared.sort();
+
+    // order second list
+    let mut ordered = second.clone();
+    ordered.sort();
+    // check if both vectors are equals
+    if squared == ordered {
+        return true;
+    } else {
+        return false;
+    }
 }
