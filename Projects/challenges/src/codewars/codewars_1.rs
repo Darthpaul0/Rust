@@ -1,4 +1,8 @@
-use std::{collections::HashMap, ops::Index, slice::SliceIndex};
+use std::{
+    collections::{HashMap, HashSet},
+    ops::Index,
+    slice::SliceIndex,
+};
 
 /**
  * Given a list of integers and a single sum value,
@@ -29,4 +33,28 @@ pub fn sum_pairs(ints: &[i8], s: i8) -> Option<Vec<(i8, i8, usize)>> {
         index += 1;
     }
     pairs
+}
+
+pub fn sum_pairs_v2(values: Vec<i32>, sum: i32) {
+    let mut pair_index: HashSet<((i32, i32), (usize, usize))> = HashSet::new();
+
+    for (i, &x) in values.iter().enumerate() {
+        for (j, &y) in values.iter().enumerate() {
+            if x + y == sum && i < j {
+                pair_index.insert(((x, y), (i, j)));
+            }
+        }
+    }
+
+    let mut result: (i32, i32) = (0, 0);
+    let smallest_index = values.len();
+
+    for (pair, indexes) in pair_index.into_iter() {
+        if indexes.1 < smallest_index {
+            result.0 = pair.0;
+            result.1 = pair.1;
+        }
+    }
+
+    dbg!(&result);
 }
