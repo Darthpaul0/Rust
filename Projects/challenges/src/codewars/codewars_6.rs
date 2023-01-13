@@ -14,12 +14,11 @@ pub fn product_fib(num: i32) -> Vec<(i32, i32, bool)> {
     // when we found a couple of consecutive numbers that
     // are correct, break and return
 
-    // sequence
-    //     .iter()
-    //     .map(|x| sequence.iter().map(|y| x.clone() + y == num));
-
-    let mut index = 1;
-
+    sequence
+        .iter()
+        .map(|x| sequence.iter().map(|y| x.clone() + y == num));
+    // let mut index = 1;
+    /*
     for n in sequence.iter() {
         println!("{}", n);
         let first = sequence.get(index).unwrap();
@@ -31,5 +30,6 @@ pub fn product_fib(num: i32) -> Vec<(i32, i32, bool)> {
         index += 1;
     }
 
-    result
+    result */
+    vec![]
 }

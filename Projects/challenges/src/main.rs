@@ -9,9 +9,14 @@ mod challenges;
 mod codewars;
 use crate::{
     challenges::{
-        challenge_1::lettersum, challenge_2::*, challenge_3::odd_words,
-        challenge_4::most_common_sum, challenge_5::*, challenge_6::words_diff_letters,
-        challenge_7::longest_list, challenge_8::create_diamond,
+        challenge_1::lettersum,
+        challenge_2::*,
+        challenge_3::odd_words,
+        challenge_4::most_common_sum,
+        challenge_5::*,
+        challenge_6::{words_diff_letters, words_diff_letters_v2},
+        challenge_7::longest_list,
+        challenge_8::create_diamond,
     },
     codewars::{codewars_1::*, codewars_2::cmp_same, codewars_3::*, codewars_4::*, codewars_6::*},
 };
@@ -74,7 +79,11 @@ fn main() {
         // );
 
         // Challenge 6
-        // println!("Challenge 6 result >>> {:?}", words_diff_letters(&char_map));
+        println!("Challenge 6 result >>> {:?}", words_diff_letters(&char_map));
+        println!(
+            "Challenge 6 result >>> {:?}",
+            words_diff_letters_v2(&char_map)
+        );
 
         // Challenge 7
         // println!("{:?}", longest_list());
@@ -109,7 +118,7 @@ fn main() {
         // Codewars 5 is actually challenge 8!
 
         // Codewars 6
-        println!("{:?}", product_fib(714))
+        //println!("{:?}", product_fib(714))
     }
 
     // TESTING
