@@ -7,18 +7,14 @@ use std::time::Instant;
 // imports
 mod challenges;
 mod codewars;
-use crate::challenges::challenge_1::lettersum;
-use crate::challenges::challenge_2::*;
-use crate::challenges::challenge_3::odd_words;
-use crate::challenges::challenge_4::most_common_sum;
-use crate::challenges::challenge_5::*;
-use crate::challenges::challenge_6::words_diff_letters;
-use crate::challenges::challenge_7::longest_list;
-use crate::challenges::challenge_8::create_diamond;
-use crate::codewars::codewars_1::*;
-use crate::codewars::codewars_2::cmp_same;
-use crate::codewars::codewars_3::*;
-use crate::codewars::codewars_4::*;
+use crate::{
+    challenges::{
+        challenge_1::lettersum, challenge_2::*, challenge_3::odd_words,
+        challenge_4::most_common_sum, challenge_5::*, challenge_6::words_diff_letters,
+        challenge_7::longest_list, challenge_8::create_diamond,
+    },
+    codewars::{codewars_1::*, codewars_2::cmp_same, codewars_3::*, codewars_4::*, codewars_6::*},
+};
 
 fn main() {
     // Create new HasMap
@@ -108,7 +104,12 @@ fn main() {
         // println!("Last survivor is: {}", josephus_survivor(7, 2))
 
         // Codewars 4
-        println!("Codewars 4 result >>> {:?}", perimeter(7))
+        // println!("Codewars 4 result >>> {:?}", perimeter(7))
+
+        // Codewars 5 is actually challenge 8!
+
+        // Codewars 6
+        println!("{:?}", product_fib(714))
     }
 
     // TESTING
