@@ -1,5 +1,7 @@
 mod features;
 
 fn main() {
-    println!("Hello, world!");
+    println!(
+    "Welcome to the programme!
+     What's your tournament name?"); 
 }
