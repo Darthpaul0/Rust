@@ -1,1 +1,1 @@
-/** Branch division between winners and losers */
+/* Branch division between winners and losers */

@@ -1,0 +1,1 @@
+/* Create all functions related to game */
