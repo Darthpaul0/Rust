@@ -5,9 +5,9 @@
  * https://www.codewars.com/kata/559a28007caad2ac4e000083
  */
 
-pub fn fib_sequence(n: i32) -> Vec<i32> {
+pub fn fib_sequence(n: usize) -> Vec<usize> {
     // here store the sequence
-    let mut sequence: Vec<i32> = Vec::new();
+    let mut sequence: Vec<usize> = Vec::new();
     let mut index = 0;
     let mut sum;
 
@@ -33,12 +33,12 @@ pub fn fib_sequence(n: i32) -> Vec<i32> {
     }
 }
 
-pub fn perimeter(n: i32) -> i32 {
+pub fn perimeter(n: usize) -> usize {
     match n {
         0 => 0,
         1 => 1,
         n => {
-            let sequence: i32 = fib_sequence(n).iter().sum();
+            let sequence: usize = fib_sequence(n).iter().sum();
             sequence * 4
         }
     }

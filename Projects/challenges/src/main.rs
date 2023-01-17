@@ -79,11 +79,11 @@ fn main() {
         // );
 
         // Challenge 6
-        println!("Challenge 6 result >>> {:?}", words_diff_letters(&char_map));
-        println!(
-            "Challenge 6 result >>> {:?}",
-            words_diff_letters_v2(&char_map)
-        );
+        // println!("Challenge 6 result >>> {:?}", words_diff_letters(&char_map));
+        // println!(
+        //     "Challenge 6 result >>> {:?}",
+        //     words_diff_letters_v2(&char_map)
+        // );
 
         // Challenge 7
         // println!("{:?}", longest_list());
@@ -118,7 +118,8 @@ fn main() {
         // Codewars 5 is actually challenge 8!
 
         // Codewars 6
-        //println!("{:?}", product_fib(714))
+        println!("Codewars 6 >>> {:?}", product_fib(714));
+        println!("Codewars 6 >>> {:?}", product_fib(800))
     }
 
     // TESTING
