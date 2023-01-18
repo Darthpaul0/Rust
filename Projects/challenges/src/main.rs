@@ -7,6 +7,8 @@ use std::time::Instant;
 // imports
 mod challenges;
 mod codewars;
+use codewars::{codewars_7::parentheses, codewars_8::alternative_add};
+
 use crate::{
     challenges::{
         challenge_1::lettersum,
@@ -118,8 +120,19 @@ fn main() {
         // Codewars 5 is actually challenge 8!
 
         // Codewars 6
-        println!("Codewars 6 >>> {:?}", product_fib(714));
-        println!("Codewars 6 >>> {:?}", product_fib(800))
+        // println!("Codewars 6 >>> {:?}", product_fib(714));
+        // println!("Codewars 6 >>> {:?}", product_fib(800))
+
+        // Codewars 7
+        // println!(
+        // "Codewars 7 >>> {}",
+        // parentheses("(()())()()()((()))))".to_string())
+        // )
+
+        // Codewars 8
+        println!("Codewars 8 >>> {}", alternative_add(5, 19));
+        println!("Codewars 8 >>> {}", alternative_add(-27, 18));
+        println!("Codewars 8 >>> {}", alternative_add(-14, -16));
     }
 
     // TESTING
