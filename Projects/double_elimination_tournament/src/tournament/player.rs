@@ -3,6 +3,7 @@ use std::fmt::Display;
  * In this file we will create all functions related to the player
  */
 use std::sync::atomic::{AtomicU32, Ordering};
+
 // Struct to create a player
 #[derive(Debug)]
 /**
@@ -21,19 +22,24 @@ pub struct Player {
     elo: usize,
 }
 
-// implementation for players
+// implementations for players
 // we are using this type because it is safe to use in multithread
 static NEXT_ID: AtomicU32 = AtomicU32::new(1);
 impl Player {
     /** Create new player*/
     pub fn new(name: &str, elo: usize) -> Self {
         Player {
+            id: NEXT_ID.fetch_add(1, Ordering::Relaxed),
             name: Some(String::from(name)),
             elo,
             // the user must to specify the name and the elo of the player
             // if the other fields are blank, we fill them with default params
             ..Default::default()
         }
+    }
+
+    pub fn elo(&self) -> usize {
+        self.elo
     }
 }
 
@@ -54,6 +60,7 @@ impl Default for Player {
 
 // Trait to display the name of the players
 impl Display for Player {
+    /** Method to display a player */
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match &self.name {
             Some(name) => write!(f, "{}", name),
@@ -63,10 +70,6 @@ impl Display for Player {
 }
 
 impl PartialEq for Player {
-    fn ne(&self, other: &Self) -> bool {
-        !self.eq(other)
-    }
-
     fn eq(&self, other: &Self) -> bool {
         self.id == other.id
             && self.name == other.name
@@ -81,17 +84,19 @@ impl PartialEq for Player {
 mod test {
     use super::Player;
 
-    // test creation of player´
+    // test creation of a new player
     #[test]
     fn create_new_player() {
-        let new_player = Player::new("Paquito", 1500);
-        assert_eq!(
-            new_player,
-            Player {
-                name: Some("Paquito".to_string()),
-                elo: 1500,
-                ..Default::default()
-            }
-        );
+        let new_player_1 = Player::new("Manolo", 1500);
+        let new_player_2 = Player::new("Paco", 1500);
+        assert_eq!(new_player_1 != new_player_2, true);
+    }
+
+    // test creation of a default player
+    #[test]
+    fn create_default_player() {
+        let default_player_1 = Player::default();
+        let default_player_2 = Player::default();
+        assert_eq!(default_player_1 != default_player_2, true);
     }
 }
