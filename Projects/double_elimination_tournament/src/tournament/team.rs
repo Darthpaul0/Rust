@@ -43,9 +43,9 @@ impl<'a> Team<'a> {
         }
     }
 
-    /** This function is used to calculate the team ELO by using a geometric average.
+    /** This function is used to calculate the ELO of a team by using a geometric average.
     The idea is to compensate the team level when there are players in a team with
-    a really different level (such as 2000 and 500)
+    a really different ELO (such as 2000 and 500)
     */
     fn avg_elo(self) -> f64 {
         // get all elos in the team
@@ -61,7 +61,6 @@ impl<'a> Team<'a> {
 }
 // Some testing
 #[cfg(test)]
-
 mod test {
     use crate::tournament::player::{self, Player};
 
@@ -81,6 +80,7 @@ mod test {
         test_team.add_player(&player_2);
         test_team.add_player(&player_3);
 
+        // allowed margin of error
         let epsilon = 0.001;
 
         assert!((test_team.avg_elo() - 200.0).abs() < epsilon);
@@ -103,5 +103,49 @@ mod test {
         let epsilon = 0.001;
 
         assert!((test_team.avg_elo() - 26.2074).abs() < epsilon);
+    }
+
+    #[test]
+    fn test_add_player() {
+        // create test team
+        let mut test_team = Team::new("ermejo", vec![]);
+
+        // create test players
+        let player_1 = Player::new("Paco", 200);
+
+        // get number of players of the team
+        let num_players = test_team.players.len();
+
+        // add player
+        test_team.add_player(&player_1);
+
+        // test
+        assert!(num_players < test_team.players.len())
+    }
+
+    #[test]
+    fn test_remove_player() {
+        // create test players
+        let player_1 = Player::new("Paco", 2000);
+        let player_2 = Player::new("Paco", 9);
+        let player_3 = Player::new("Paco", 1);
+
+        // create test team
+        let mut test_team = Team::new("ermejo", vec![]);
+
+        // add players to the team
+        test_team.add_player(&player_1);
+        test_team.add_player(&player_2);
+        test_team.add_player(&player_3);
+
+        // get actual number of players
+        let num_players = test_team.players.len();
+
+        // remove several players
+        test_team.remove_player(&player_1);
+        test_team.remove_player(&player_2);
+
+        // test
+        assert!(num_players > test_team.players.len())
     }
 }
