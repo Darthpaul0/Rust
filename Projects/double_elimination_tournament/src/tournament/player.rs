@@ -38,6 +38,7 @@ impl Player {
         }
     }
 
+    // get player ELO
     pub fn elo(&self) -> usize {
         self.elo
     }
@@ -83,7 +84,6 @@ impl PartialEq for Player {
 #[cfg(test)]
 mod test {
     use super::Player;
-
     // test creation of a new player
     #[test]
     fn create_new_player() {
