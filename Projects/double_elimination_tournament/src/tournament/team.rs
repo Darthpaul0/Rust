@@ -56,6 +56,8 @@ impl<'a> Team<'a> {
 
         // process of compensation
         let n_roots_of_elo: Vec<_> = all_elos.iter().map(|x| (*x as f64).powf(1.0 / n)).collect();
+
+        // return product
         n_roots_of_elo.iter().product()
     }
 }
