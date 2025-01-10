@@ -1,0 +1,1 @@
+C:\Users\Pablo\Desktop\Formación\Programación\Rust\Advent\ of\ Code\AoC-2015\day_2\target\debug\day_2.exe: C:\Users\Pablo\Desktop\Formación\Programación\Rust\Advent\ of\ Code\AoC-2015\day_2\src\main.rs
