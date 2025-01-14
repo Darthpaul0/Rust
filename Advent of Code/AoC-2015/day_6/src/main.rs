@@ -17,7 +17,6 @@ fn main() {
             _ => (),
         }
     }
-
     // Count how many lights are on
     let lights_on = lights_grid.iter().flatten().filter(|&&l| l == 1).count();
     println!("Lights on: {}", lights_on);
@@ -34,9 +33,9 @@ fn extract_instructions(path: String) -> Vec<(String, (usize, usize), (usize, us
         .map(|line| {
             let mut parts = line.split_whitespace();
             let action = parts.next().unwrap();
-            let mut instruction = String::new();
-            let mut start = (0, 0);
-            let mut end = (0, 0);
+            let instruction;
+            let start;
+            let end;
 
             if action == "toggle" {
                 instruction = action.to_string();
