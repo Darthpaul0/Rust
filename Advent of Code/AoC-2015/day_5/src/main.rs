@@ -1,9 +1,13 @@
-use std::{collections::HashMap, fs};
+use std::{
+    collections::{HashMap, HashSet},
+    fs,
+    hash::Hash,
+};
 
 fn main() {
     println!(
         "There are {} nice strings",
-        classify_strings("./src/strings.txt".to_string())
+        classify_strings("./src/test.txt".to_string())
     );
 }
 
@@ -30,22 +34,22 @@ fn filter_string(input: &str) -> bool {
 fn second_filtering(input: &str) -> bool {
     let mut repeated_between = false;
     let mut appears_twice = false;
-    let mut groups: HashMap<String, usize> = HashMap::new();
-
+    let mut group: Vec<String> = Vec::new();
     let chars: Vec<char> = input.chars().collect();
+    let mut duplicated = HashSet::new();
+    for i in 0..chars.len() - 1 {
+        let new_str = chars[i].to_string() + &chars[i + 1].to_string();
+        group.push(new_str.clone());
+
+        if !duplicated.insert(new_str) {
+            // If insertion fails, it means it's a duplicate
+            appears_twice = true;
+            break; // Exit early if we find a duplicate
+        }
+    }
+    println!("{group:?}");
 
     for i in 0..chars.len() - 1 {
-        // Create pair of two consecutive characters
-        let group = chars[i].to_string() + &chars[i + 1].to_string();
-
-        // Check for non-overlapping pairs
-        if let Some(&prev_index) = groups.get(&group) {
-            if i > prev_index + 1 {
-                appears_twice = true;
-            }
-        }
-        groups.insert(group, i);
-
         // Check for repeating characters with one character in between
         if i >= 2 && chars[i] == chars[i - 2] {
             repeated_between = true;
@@ -64,7 +68,7 @@ fn classify_strings(path: String) -> usize {
     let strings_list = extract_strings(path);
     strings_list
         .iter()
-        .filter(|word| filter_string(word) && second_filtering(word))
+        .filter(|word| second_filtering(word))
         .count()
 }
 
