@@ -1,1 +1,1 @@
-/home/pferna12/Rust/Rust/Advent\ of\ Code/AoC-2015/day_6/target/debug/day_6: /home/pferna12/Rust/Rust/Advent\ of\ Code/AoC-2015/day_6/src/main.rs
+C:\Users\Pablo\Desktop\Formación\Programación\Rust\Advent\ of\ Code\AoC-2015\day_6\target\debug\day_6.exe: C:\Users\Pablo\Desktop\Formación\Programación\Rust\Advent\ of\ Code\AoC-2015\day_6\src\main.rs

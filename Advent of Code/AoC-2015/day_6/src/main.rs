@@ -18,8 +18,11 @@ fn main() {
         }
     }
     // Count how many lights are on
-    let lights_on = lights_grid.iter().flatten().filter(|&&l| l == 1).count();
-    println!("Lights on: {}", lights_on);
+    // let lights_on = lights_grid.iter().flatten().filter(|&&l| l == 1).count();
+    // println!("Lights on: {}", lights_on);
+    // Calculate the total brightness
+    let total_brightness: i32 = lights_grid.iter().flatten().sum();
+    println!("Total brightness: {}", total_brightness);
 }
 
 // Read instructions from a file
@@ -85,7 +88,7 @@ fn turn_on_lights(start: (usize, usize), end: (usize, usize), lights_grid: &mut 
     for i in start.0..=end.0 {
         for j in start.1..=end.1 {
             // Turn on light
-            lights_grid[i][j] = 1;
+            lights_grid[i][j] += 1;
         }
     }
 }
@@ -95,7 +98,7 @@ fn toggle_lights(start: (usize, usize), end: (usize, usize), lights_grid: &mut V
     for i in start.0..=end.0 {
         for j in start.1..=end.1 {
             // Toggle light
-            lights_grid[i][j] ^= 1;
+            lights_grid[i][j] += 2;
         }
     }
 }
@@ -104,8 +107,9 @@ fn turn_off_lights(start: (usize, usize), end: (usize, usize), lights_grid: &mut
     // Turn off lights from start to end
     for i in start.0..=end.0 {
         for j in start.1..=end.1 {
-            // Turn off light
-            lights_grid[i][j] = 0;
+            if lights_grid[i][j] > 0 {
+                lights_grid[i][j] -= 1;
+            }
         }
     }
 }
