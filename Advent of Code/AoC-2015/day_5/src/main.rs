@@ -7,7 +7,7 @@ use std::{
 fn main() {
     println!(
         "There are {} nice strings",
-        classify_strings("./src/test.txt".to_string())
+        classify_strings("./src/strings.txt".to_string())
     );
 }
 
@@ -32,36 +32,28 @@ fn filter_string(input: &str) -> bool {
 }
 
 fn second_filtering(input: &str) -> bool {
-    let mut repeated_between = false;
-    let mut appears_twice = false;
-    let mut group: Vec<String> = Vec::new();
     let chars: Vec<char> = input.chars().collect();
-    let mut duplicated = HashSet::new();
+    let mut pair_found = false;
+    let mut repeat_with_gap_found = false;
+
+    // Check for a pair that appears at least twice without overlapping
     for i in 0..chars.len() - 1 {
-        let new_str = chars[i].to_string() + &chars[i + 1].to_string();
-        group.push(new_str.clone());
-
-        if !duplicated.insert(new_str) {
-            // If insertion fails, it means it's a duplicate
-            appears_twice = true;
-            break; // Exit early if we find a duplicate
-        }
-    }
-    println!("{group:?}");
-
-    for i in 0..chars.len() - 1 {
-        // Check for repeating characters with one character in between
-        if i >= 2 && chars[i] == chars[i - 2] {
-            repeated_between = true;
-        }
-
-        // Early exit if both conditions are satisfied
-        if repeated_between && appears_twice {
+        let pair = &input[i..i + 2];
+        if input[i + 2..].contains(pair) {
+            pair_found = true;
             break;
         }
     }
 
-    repeated_between && appears_twice
+    // Check for a letter that repeats with exactly one letter between them
+    for i in 0..chars.len() - 2 {
+        if chars[i] == chars[i + 2] {
+            repeat_with_gap_found = true;
+            break;
+        }
+    }
+
+    pair_found && repeat_with_gap_found
 }
 
 fn classify_strings(path: String) -> usize {
